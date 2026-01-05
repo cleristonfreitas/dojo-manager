@@ -3,22 +3,23 @@ import {
   LayoutDashboard,
   Users,
   Calendar,
-  Trophy,
-  CreditCard,
-  Settings,
   GraduationCap,
-  ClipboardList,
+  ClipboardCheck,
+  DollarSign,
+  Settings,
+  BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Alunos", href: "/alunos", icon: Users },
-  { name: "Turmas", href: "/turmas", icon: GraduationCap },
+  { name: "Turmas", href: "/turmas", icon: BookOpen },
   { name: "Agenda", href: "/agenda", icon: Calendar },
-  { name: "Graduações", href: "/graduacoes", icon: Trophy },
-  { name: "Frequência", href: "/frequencia", icon: ClipboardList },
-  { name: "Financeiro", href: "/financeiro", icon: CreditCard },
+  { name: "Graduações", href: "/graduacoes", icon: GraduationCap },
+  { name: "Frequência", href: "/frequencia", icon: ClipboardCheck },
+  { name: "Financeiro", href: "/financeiro", icon: DollarSign },
   { name: "Configurações", href: "/configuracoes", icon: Settings },
 ];
 
@@ -29,14 +30,17 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-sidebar">
       <div className="flex h-full flex-col">
         {/* Logo */}
-        <div className="flex h-20 items-center gap-3 px-6 border-b border-sidebar-border">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sidebar-primary">
-            <span className="text-xl font-bold text-sidebar-primary-foreground">柔</span>
+        <div className="flex h-20 items-center justify-between px-6 border-b border-sidebar-border">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sidebar-primary">
+              <span className="text-xl font-bold text-sidebar-primary-foreground">柔</span>
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-sidebar-foreground">JudôPro</h1>
+              <p className="text-xs text-sidebar-foreground/70">Sistema de Gestão</p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-lg font-bold text-sidebar-foreground">JudôPro</h1>
-            <p className="text-xs text-sidebar-foreground/70">Sistema de Gestão</p>
-          </div>
+          <ThemeToggle />
         </div>
 
         {/* Navigation */}
